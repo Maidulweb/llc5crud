@@ -12,3 +12,9 @@
 */
 
 Route::get('/', 'indexController@index')->name('index');
+
+Route::get('/llclogin', 'indexController@llclogin')->name('llclogin');
+Route::post('/llclogin', 'indexController@loginprocess');
+
+Route::get('/llcregister', 'indexController@llcregister')->name('llcregister');
+Route::post('/llcregister', 'indexController@registerprocess');
