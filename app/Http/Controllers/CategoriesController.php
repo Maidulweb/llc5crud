@@ -9,8 +9,8 @@ class CategoriesController extends Controller
 {
     public function index ()
     {
-
-        $categories = Categories::all();
+             /* all */
+        $categories = Categories::select('id', 'name','slug', 'categories_id')->get();
            return view('categories.index')->with('categories', $categories);
     }
 
