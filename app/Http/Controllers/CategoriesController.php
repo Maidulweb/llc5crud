@@ -10,7 +10,7 @@ class CategoriesController extends Controller
     public function index ()
     {
              /* all */
-        $categories = Categories::select('id', 'name','slug', 'categories_id')->get();
+        $categories = Categories::select('id', 'name','slug', 'categories_id')->paginate();
            return view('categories.index')->with('categories', $categories);
     }
 

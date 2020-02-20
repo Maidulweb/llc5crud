@@ -45,6 +45,7 @@
       <td>{{$category->categories_id}}</td>
     </tr>
   </tbody>
+  {!! $categories->links() !!}
   @endforeach
 </table>
     </div>
