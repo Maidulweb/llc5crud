@@ -21,9 +21,32 @@
   </div>
 
     <div class="row">
-    <div class="col-md-6 offset-md-3 padd-20">
-       <a class="btn btn-success" href="{{route('categories.index')}}">Category</a>
-       <a class="btn btn-success" href="{{route('categories.create')}}">Category Create</a>
+    <div class="col-md-6 offset-md-3">
+        <div class="category-menu">
+        <a class="btn btn-success" href="{{route('categories.index')}}">Category</a>
+            <a class="btn btn-success" href="{{route('categories.create')}}">Category Create</a>
+        </div>
+        <h4 class="padd-20">Category Data</h4>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  @foreach( $categories as $category )
+  <tbody>
+    <tr>
+      <th scope="row">{{$category->id}}</th>
+      <td>{{$category->name}}</td>
+      <td>{{$category->slug}}</td>
+      <td>{{$category->categories_id}}</td>
+    </tr>
+  </tbody>
+  @endforeach
+</table>
     </div>
     </div>
   </div>

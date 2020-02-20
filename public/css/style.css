@@ -4,6 +4,9 @@
 ul li {
     list-style: none;
 }
+.auth-ul li {
+    display: inline-block;
+}
 /* ========
    HEADER
 ========== */
@@ -34,7 +37,12 @@ ul li {
     background-color: transparent !important;
 }
 
-
+.padd-60 {
+    padding: 60px 0;
+}
+.padd-20 {
+    padding: 20px 0;
+}
 
 
 

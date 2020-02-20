@@ -20,7 +20,23 @@
                 </div>
                 <div class="col-md-4">
                     <div class="top-header-right">
-                      <a href="">Login</a> <a href="">Register</a>
+
+                    @auth()
+                    <ul class="auth-ul">
+                     <li> <a href="{{route('llcprofile')}}">Profile</a></li>
+                     <li>
+                     <form action="{{route('llclogout')}}" method="post">
+                       @csrf
+                       <button type="submit">Logout</button>
+                    </form>
+                     </li>
+                    </ul>
+                    @endauth
+
+                    @guest()
+                      <a href="{{route('llclogin')}}">Login</a> <a href="{{route('llcregister')}}">Register</a>
+                    @endguest
+
                     </div>
                 </div>
                </div>

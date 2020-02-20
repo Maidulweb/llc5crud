@@ -13,8 +13,22 @@
 
 Route::get('/', 'indexController@index')->name('index');
 
-Route::get('/llclogin', 'indexController@llclogin')->name('llclogin');
-Route::post('/llclogin', 'indexController@loginprocess');
+Route::get('/register', 'LoginregisterController@llcregister')->name('llcregister');
+Route::post('/register', 'LoginregisterController@registerprocess');
 
-Route::get('/llcregister', 'indexController@llcregister')->name('llcregister');
-Route::post('/llcregister', 'indexController@registerprocess');
+Route::get('/login', 'LoginregisterController@llclogin')->name('llclogin');
+Route::post('/login', 'LoginregisterController@loginprocess');
+
+Route::get('/profile', 'LoginregisterController@llcprofile')->name('llcprofile');
+
+Route::post('/logout', 'LoginregisterController@llclogout')->name('llclogout');
+
+
+Route::get('/categories', 'CategoriesController@index')->name('categories.index');
+
+Route::get('/categories/add', 'CategoriesController@create')->name('categories.create');
+Route::post('/categories', 'CategoriesController@store')->name('categories.store');
+
+
+
+
