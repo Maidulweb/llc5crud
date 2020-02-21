@@ -24,6 +24,7 @@
     <div class="col-md-6 offset-md-3 padd-20">
        <a class="btn btn-success" href="{{route('categories.index')}}">Category</a>
        <a class="btn btn-success" href="{{route('categories.create')}}">Category Create</a>
+       <a class="btn btn-success" href="{{route('categories.show')}}">Category Show</a>
     </div>
     </div>
   </div>

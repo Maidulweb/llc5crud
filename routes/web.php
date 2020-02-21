@@ -25,9 +25,11 @@ Route::post('/logout', 'LoginregisterController@llclogout')->name('llclogout');
 
 
 Route::get('/categories', 'CategoriesController@index')->name('categories.index');
-
 Route::get('/categories/add', 'CategoriesController@create')->name('categories.create');
 Route::post('/categories', 'CategoriesController@store')->name('categories.store');
+Route::get('/categories/{id}', 'CategoriesController@show')->name('categories.show');
+Route::get('/categories/{id}/edit', 'CategoriesController@edit')->name('categories.edit');
+Route::put('/categories/{id}/update', 'CategoriesController@update')->name('categories.update');
 
 
 

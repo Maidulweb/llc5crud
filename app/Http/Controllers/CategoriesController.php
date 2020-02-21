@@ -50,4 +50,48 @@ class CategoriesController extends Controller
 
         }
     }
+
+    public function show ($id)
+    {
+           $categories = Categories::find($id);
+           return view('categories.show')->with('categories', $categories);
+    }
+    
+    public function edit ($id)
+    {
+        $categories = Categories::find($id);
+        return view('categories.edit')->with('categories', $categories);
+    }
+    
+    public function update ($id, Request $request)
+    {
+        $request->validate([
+            'name' => 'required|regex:/^[a-z A-Z]+$/u|max:255|min:3',
+            'slug' => 'required',
+            'categories_id' => 'required',
+        ]);
+
+       try
+        {
+
+            $categories = Categories::find($id);
+            $categories->name = $request->name;
+            $categories->slug = $request->slug;
+            $categories->categories_id = $request->categories_id;
+            $categories->save();
+
+            session()->flash('message', 'Successfully Updated!');
+            session()->flash('type', 'success');
+
+            return redirect()->back()->with('categories', $categories);
+
+        }catch(Exception $e){
+
+            session()->flash('message', $e->getMessage());
+            session()->flash('type', 'danger');
+
+            return redirect()->back();
+
+        }
+    }
 }
