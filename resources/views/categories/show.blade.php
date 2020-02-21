@@ -42,7 +42,14 @@
           <p>{{$categories->categories_id}}</p>
           </div>
         </div>
-        <a class="btn btn-success"href="{{route('categories.edit',$categories->id)}}">Update</a>
+        <a class="btn btn-success" href="{{route('categories.edit',$categories->id)}}">Update</a>
+        <span class="btn btn-success">
+          <form action="{{route('categories.delete',$categories->id)}}" method="post" onsubmit="confirm('Are you sure!')">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Delete</button>
+          </form>
+        </span>
       
     </div>
     </div>

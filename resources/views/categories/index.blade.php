@@ -46,9 +46,10 @@
       <td> <a href="{{route('categories.show',$category->id)}}">Details</a> </td>
     </tr>
   </tbody>
-  {!! $categories->links() !!}
+  
   @endforeach
 </table>
+{!! $categories->links() !!}
     </div>
     </div>
   </div>

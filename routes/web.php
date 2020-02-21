@@ -30,6 +30,7 @@ Route::post('/categories', 'CategoriesController@store')->name('categories.store
 Route::get('/categories/{id}', 'CategoriesController@show')->name('categories.show');
 Route::get('/categories/{id}/edit', 'CategoriesController@edit')->name('categories.edit');
 Route::put('/categories/{id}/update', 'CategoriesController@update')->name('categories.update');
+Route::delete('/categories/{id}/delete', 'CategoriesController@delete')->name('categories.delete');
 
 
 

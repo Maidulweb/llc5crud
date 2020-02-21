@@ -10,7 +10,7 @@ class CategoriesController extends Controller
     public function index ()
     {
              /* all */
-        $categories = Categories::select('id', 'name','slug', 'categories_id')->paginate();
+        $categories = Categories::select('id', 'name','slug', 'categories_id')->paginate(2);
            return view('categories.index')->with('categories', $categories);
     }
 
@@ -62,7 +62,7 @@ class CategoriesController extends Controller
         $categories = Categories::find($id);
         return view('categories.edit')->with('categories', $categories);
     }
-    
+
     public function update ($id, Request $request)
     {
         $request->validate([
@@ -93,5 +93,15 @@ class CategoriesController extends Controller
             return redirect()->back();
 
         }
+    }
+
+    public function delete ($id)
+    {
+           $categories = Categories::find($id);
+           $categories->delete();
+           session()->flash('message', 'Deleted succussfully!');
+           session()->flash('type', 'danger');
+           return redirect()->route('categories.index')->with('categories', $categories);
+          
     }
 }
