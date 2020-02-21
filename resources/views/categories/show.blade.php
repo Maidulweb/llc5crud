@@ -44,7 +44,7 @@
         </div>
         <a class="btn btn-success" href="{{route('categories.edit',$categories->id)}}">Update</a>
         <span class="btn btn-success">
-          <form action="{{route('categories.delete',$categories->id)}}" method="post" onsubmit="confirm('Are you sure!')">
+          <form action="{{route('categories.delete',$categories->id)}}" method="post" onsubmit="return confirm('Are you sure!')">
             @csrf
             @method('DELETE')
             <button type="submit">Delete</button>
